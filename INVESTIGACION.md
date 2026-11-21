@@ -1,5 +1,5 @@
 
-## Investigación: Merge Sort en la versión V2
+## **Investigación: Merge Sort en la versión V2.**
 
 ## **1. Algoritmo, variante, clases, métodos y rutas del código fuente.**
 
