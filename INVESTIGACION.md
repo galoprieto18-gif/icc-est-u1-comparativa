@@ -83,7 +83,7 @@ Seguí manualmente la ejecución paso a paso sobre**[7, 2, 7, 0, 4, 2]` (índice
 
 **Estabilidad:** Mi implementación es estable porque, cuando existe la igualdad entre elementos de ambas mitades del arreglo, el código toma primero el elemento de la izquierda (`auxiliar[i]`), respetando su orden original
 
-**6. Caso desfavorable y prueba real**
+## **6. Caso desfavorable y prueba real**
 
 **Escenario desfavorable:** 
 
