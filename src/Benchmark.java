@@ -1,24 +1,29 @@
 public class Benchmark {
     
-    public static Results medir(Runnable accion, String nombre, String sample) {
+    // Recibe la acción como Runnable (se envía con una lambda)
+    public static Results medir(Runnable accion, String nombre, int sample) {
+
+        if (accion == null) {
+            throw new IllegalArgumentException(" La acción a medir no puede ser nulo a " + nombre + ".");
+        }
 
         long tiempoActual;
-        
-        long tiempoFinal;
-        
-        System.out.println("Función" + nombre);
-        // tiempo actual
-        tiempoActual  = System.nanoTime();
 
-        // accion 
+        long tiempoFinal;
+
+        // tiempo actual
+        tiempoActual = System.nanoTime();
+        // accion
         accion.run();
         // tiempo final
         tiempoFinal = System.nanoTime();
 
-        Results results = new Results(nombre, (tiempoFinal- tiempoActual), sample);
-        // retornar el tiempo de duración
+        if (tiempoFinal < tiempoActual) {
+            throw new IllegalStateException("Tiempo final invalido al medir '" + nombre + "' con sample " + sample + ".");
+        }
 
-        return results;
+        return new Results(nombre, (tiempoFinal - tiempoActual), sample);
     }
-
 }
+
+
