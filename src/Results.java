@@ -38,7 +38,6 @@ public class Results {
         return duration / 1_000_000.0;
     }
 
-
     public double getDuration() {
         return duration;
     }

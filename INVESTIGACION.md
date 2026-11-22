@@ -9,7 +9,7 @@ El algoritmo que investigué e implementé para la versión V2 de mi proyecto es
 
 **Otras clases del proyecto conectadas son:** `App.java`, `Benchmark.java`, `Controlresult.java`, `Results.java` y `PruebasAceptacion.java`.
 
-**Clase y métodos implementados:** en la clase `MetodosOrdenamiento` implementé `sortMerge(int[] arreglo)` para ordenar el arreglo de una forma más rápida. Además, utilicé una sobrecarga recursiva `sortMerge(int[] arreglo, int[] auxiliar, int izquierda, int derecha)` para ir partiendo el arreglo encontrando un medio, y el método auxiliar `merge(int[] arreglo, int[] auxiliar, int izquierda, int medio, int derecha)` para ir acomodando los datos en su posición de orden correcto[cite: 12, 13, 17].
+**Clase y métodos implementados:** en la clase `MetodosOrdenamiento` implementé `sortMerge(int[] arreglo)` para ordenar el arreglo de una forma más rápida. Además, utilicé una sobrecarga recursiva `sortMerge(int[] arreglo, int[] auxiliar, int izquierda, int derecha)` para ir partiendo el arreglo encontrando un medio, y el método auxiliar `merge(int[] arreglo, int[] auxiliar, int izquierda, int medio, int derecha)` para ir acomodando los datos en su posición de orden correcto.
 
 ## **2. Proceso paso a paso, parámetros, caso base, progreso y propiedad conservada.**
 
@@ -81,7 +81,7 @@ Seguí manualmente la ejecución paso a paso sobre**[7, 2, 7, 0, 4, 2]` (índice
 
 **Memoria auxiliar y pila recursiva:** El arreglo `auxiliar` ocupa $O(n)$ de espacio adicional en memoria temporal y la pila de llamadas recursivas ocupa $O(\log n)$ por la profundidad de las llamadas.
 
-**Estabilidad:** Mi implementación es estable porque, cuando existe la igualdad entre elementos de ambas mitades del arreglo, el código toma primero el elemento de la izquierda (`auxiliar[i]`), respetando su orden original
+**Estabilidad:** Mi implementación es estable porque, cuando existe la igualdad entre elementos de ambas mitades del arreglo, el código toma primero el elemento de la izquierda (`auxiliar[i]`), respetando su orden original.
 
 ## **6. Caso desfavorable y prueba real**
 
@@ -94,7 +94,7 @@ Un caso exigente para mi implementación es trabajar con tamaños grandes (como 
   - *Qué ejecuté:* Probé el método tanto en `App.java` con las muestras de `10.000`, `50.000` y `100.000` datos como en `PruebasAceptacion.java` con casos borde (`[]`, `[5]`, `[2, 1]`, `[7, 2, 7, 0, 4, 2]`), muestras de `100.000` en varios órdenes (aleatorio, ya ordenado, inverso, todos iguales y repetidos `0..9`) y una prueba grande de `10.000.000` de elementos.
 
 
-  - *Qué observé:* No tuve errores de índices ni desbordamiento de pila en ninguna ejecución; todas pasaron la validación de orden ascendente y conservación de datos[cite: 8, 13, 17].
+  - *Qué observé:* No tuve errores de índices ni desbordamiento de pila en ninguna ejecución; todas pasaron la validación de orden ascendente y conservación de datos.
 
 ## **7. Relación con la tabla de benchmarking y fuentes técnicas**
 
@@ -102,7 +102,7 @@ Un caso exigente para mi implementación es trabajar con tamaños grandes (como 
 
   En mi tabla de mediciones se nota la diferencia entre $O(n \log n)$ y $O(n^2)$: mientras `Burbuja` sube de `43.172.900 ns` (`0,0431729 s`) en `10.000` datos hasta `10.067.924.800 ns` (`10,0679248 s`) en `100.000` datos, `MergeSort` pasa de `2.219.800 ns` (`0,0022198 s`) en `10.000` datos a apenas `9.102.400 ns` (`0,0091024 s`) en `100.000` datos.
 
-  Al comparar `MergeSort` contra `Collectors` y `V2 Comparator`, todos se mantienen en el rango de pocos milisegundos gracias a su comportamiento $O(n \log n)$; `MergeSort` evita convertir `int` a `Integer`, aunque incluye dentro de su medición el tiempo de reservar y copiar el arreglo `auxiliar`[cite: 8, 12, 17].
+  Al comparar `MergeSort` contra `Collectors` y `V2 Comparator`, todos se mantienen en el rango de pocos milisegundos gracias a su comportamiento $O(n \log n)$; `MergeSort` evita convertir `int` a `Integer`, aunque incluye dentro de su medición el tiempo de reservar y copiar el arreglo `auxiliar`.
 
 **Fuentes consultadas:**
   - **Fuente 1:** Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. *Introduction to Algorithms* (4.ª ed., MIT Press — capítulo de Divide y Vencerás / Merge Sort). 
@@ -111,4 +111,4 @@ Un caso exigente para mi implementación es trabajar con tamaños grandes (como 
   - **Fuente 2:** Documentación oficial de Java SE (`java.util.Arrays` y `java.util.Comparator`, `https://docs.oracle.com/en/java/javase/`).
    Fecha de consulta: 21 - 11 -2026
 
-  - **Diferencia entre la fuente y mi código:** De la teoría tomé la idea base de dividir en mitades y fusionar ordenadamente; por mi cuenta lo escribí en Java usando ciclos `for` y condiciones `if` sencillas sobre `int[]`, añadí la validación inicial para arreglos nulos o menores a 2, reutilicé un solo arreglo `auxiliar` dentro de `sortMerge`, calculé el punto medio como `izquierda + (derecha - izquierda) / 2` y lo integré con `Benchmark`, `Controlresult` y `App`[cite: 8, 9, 10, 12, 17, 18].
+  - **Diferencia entre la fuente y mi código:** De la teoría tomé la idea base de dividir en mitades y fusionar ordenadamente; por mi cuenta lo escribí en Java usando ciclos `for` y condiciones `if` sencillas sobre `int[]`, añadí la validación inicial para arreglos nulos o menores a 2, reutilicé un solo arreglo `auxiliar` dentro de `sortMerge`, calculé el punto medio como `izquierda + (derecha - izquierda) / 2` y lo integré con `Benchmark`, `Controlresult` y `App`.

@@ -13,7 +13,6 @@ public class App {
         MetodosOrdenamiento m = new MetodosOrdenamiento();
         Controlresult res = new Controlresult();
 
-        
         int[] list1 = g.generate(10000);
         int[] list2 = g.generate(50000);
         int[] list3 = g.generate(100000);
